@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+/* NAVBAR */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px 50px;
+    z-index: 100;
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(0, 150, 255, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #00A2FF; /* Blue accent */
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #e5e5e5;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+    color: #00A2FF;
+    border-bottom: 2px solid #00A2FF;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+/* LinkedIn blue */
+.social-icons a:first-child:hover {
+    color: #0A66C2;
+}
+
+/* GitHub light gray */
+.social-icons a:last-child:hover {
+    color: #cfcfcf;
+}
+
+/* HOME SECTION */
+.home {
+    padding: 160px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-left h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.highlight {
+    color: #00A2FF;
+}
+
+.home-buttons button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.hire {
+    background: #00A2FF;
+    color: #000;
+}
+
+.hire:hover {
+    transform: scale(1.1);
+}
+
+.works {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.works:hover {
+    background: white;
+    color: black;
+}
+
+/* PROFILE IMAGE */
+.profile-img {
+    width: 330px;
+    border-radius: 18px;
+    box-shadow: 0 0 25px #00A2FF;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+/* SECTION TITLES */
+.section-title {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    color: #00A2FF;
+}
+
+/* ABOUT */
+.about-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 80px;
+}
+
+.about-img {
+    width: 260px;
+    border-radius: 18px;
+    margin-right: 40px;
+    box-shadow: 0 0 20px #00A2FF;
+}
+
+.about-text {
+    max-width: 900px;
+    line-height: 1.9;
+    font-size: 18px;
+}
+
+/* SKILLS */
+.skill-box {
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.skill {
+    margin: 18px 0;
+}
+
+.bar {
+    width: 100%;
+    background: #222;
+    height: 8px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 8px;
+    background: #00A2FF;
+    width: 0%;
+    transition: 1.5s ease-in-out;
+}
+
+/* PROJECTS */
+.project-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.project-card {
+    display: inline-block;
+    background: #111;
+    padding: 20px;
+    width: 250px;
+    margin: 20px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    border: 1px solid rgba(0, 150, 255, 0.2);
+}
+
+.project-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00A2FF;
+}
+
+/* CONTACT */
+.contact {
+    text-align: center;
+    padding: 40px;
+}
+
+footer {
+    background: #111;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-img {
+    width: 330px;
+    border-radius: 18px;
+    box-shadow: 0 0 20px #0077ff;
+    animation: fadeSlideIn 1.4s ease-out forwards;
+}
+.resume-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.resume-img {
+    width: 60%;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 119, 255, 0.6);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.resume-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 40px rgba(0, 119, 255, 1);
+    filter: brightness(1.15);
+}
+.profile-img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;      /* Ensures proper crop */
+    border-radius: 50%;     /* Makes the image circular */
+    border: 5px solid #ffffff;  /* White border */
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    transition: 0.4s ease-in-out;
+}
+
+/* HOVER EFFECT */
+.profile-img:hover {
+    transform: scale(1.08);            /* Zoom effect */
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.35); /* Stronger shadow */
+    border-color: #00aaff;             /* Light blue glow border */
+}
+.profile-img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(135deg, #00aaff, #7a00ff);
+    transition: 0.4s ease-in-out;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
