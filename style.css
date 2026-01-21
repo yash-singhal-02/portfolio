@@ -61,6 +61,9 @@ nav {
     color: #e5e5e5;
     text-decoration: none;
     font-weight: 600;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -243,3 +246,53 @@ footer {
         grid-template-columns: 260px;
     }
 }
+
+.hire-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hire-form {
+    width: 420px;
+    background: rgba(17, 17, 17, 0.85);
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 162, 255, 0.25);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 30px rgba(0, 162, 255, 0.2);
+    margin-top: 20px;
+}
+
+.hire-form input,
+.hire-form textarea {
+    width: 100%;
+    background: #000;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+}
+
+.hire-form input::placeholder,
+.hire-form textarea::placeholder {
+    color: #888;
+}
+
+.hire-form textarea {
+    resize: none;
+    height: 120px;
+}
+
+.hire-form button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
