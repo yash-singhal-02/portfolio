@@ -22,9 +22,10 @@ form.addEventListener("submit", async (e) => {
 
     if (error) {
         console.error(error);
-        status.innerText = "❌ Submission failed";
+        status.innerText = "Submission failed";
     } else {
-        status.innerText = "✅ Thank you! I will contact you soon.";
+        status.innerText = "Thank you! I will contact you soon.";
         form.reset();
     }
 });
+
