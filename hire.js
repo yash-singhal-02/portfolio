@@ -1,6 +1,5 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-// 🔴 REPLACE THESE
 const SUPABASE_URL = "https://ubvetriarbirpsxtqyrv.supabase.co";
 const SUPABASE_KEY = "sb_publishable_3fjnq3old428IExY9kmdOA_UVYeaRHu";
 
@@ -23,10 +22,9 @@ form.addEventListener("submit", async (e) => {
 
     if (error) {
         console.error(error);
-        status.innerText = "Submission failed";
+        status.innerText = "❌ Submission failed";
     } else {
-        status.innerText = "Thank you! I will contact you soon.";
+        status.innerText = "✅ Thank you! I will contact you soon.";
         form.reset();
     }
-
 });
