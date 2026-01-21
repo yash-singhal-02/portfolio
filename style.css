@@ -5,7 +5,6 @@
     scroll-behavior: smooth;
 }
 
-/* BODY */
 body {
     background: #000;
     color: #fff;
@@ -13,7 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-/* PREMIUM DARK ENERGY BACKGROUND */
 .energy-bg {
     position: fixed;
     inset: 0;
@@ -35,7 +33,6 @@ body {
     }
 }
 
-/* KEEP CONTENT ABOVE BACKGROUND */
 header,
 section,
 footer {
@@ -43,7 +40,6 @@ footer {
     z-index: 1;
 }
 
-/* NAVBAR */
 header {
     position: fixed;
     top: 0;
@@ -88,7 +84,6 @@ nav {
     border-bottom: 2px solid #00A2FF;
 }
 
-/* SOCIAL ICONS */
 .social-icons {
     display: flex;
     gap: 20px;
@@ -112,7 +107,6 @@ nav {
     color: #cfcfcf;
 }
 
-/* HOME SECTION */
 .home {
     padding: 160px 80px;
     display: flex;
@@ -129,7 +123,6 @@ nav {
     color: #00A2FF;
 }
 
-/* BUTTONS */
 .home-buttons button {
     padding: 12px 25px;
     border-radius: 25px;
@@ -159,7 +152,6 @@ nav {
     color: black;
 }
 
-/* PROFILE IMAGE */
 .profile-img {
     width: 320px;
     height: 320px;
@@ -174,7 +166,6 @@ nav {
     transform: scale(1.1);
 }
 
-/* SECTION TITLE */
 .section-title {
     text-align: center;
     font-size: 40px;
@@ -183,7 +174,6 @@ nav {
     color: #00A2FF;
 }
 
-/* ABOUT */
 .about-container {
     display: flex;
     justify-content: center;
@@ -196,7 +186,6 @@ nav {
     font-size: 18px;
 }
 
-/* SKILLS */
 .skill-box {
     width: 70%;
     margin: auto;
@@ -222,28 +211,23 @@ nav {
     transition: 1.5s ease-in-out;
 }
 
-/* PROJECTS (3 TOP + 2 BOTTOM) */
 .project-container {
     padding: 30px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 260px);
     gap: 25px;
     max-width: 1000px;
     margin: auto;
-    justify-items: center;
+    justify-content: center;
 }
 
 .project-card {
     width: 260px;
-    height: 100px;
     background: #111;
     border: 1px solid rgba(0, 150, 255, 0.25);
     border-radius: 12px;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    padding: 18px;
+    text-align: left;
     transition: 0.3s ease;
 }
 
@@ -256,14 +240,17 @@ nav {
     transform: scale(1.08);
     box-shadow: 0 0 20px rgba(0, 162, 255, 0.8);
 }
-
-/* CONTACT */
+.project-desc {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #cfcfcf;
+    line-height: 1.5;
+}
 .contact {
     text-align: center;
     padding: 40px;
 }
 
-/* FOOTER */
 footer {
     background: #111;
     text-align: center;
@@ -273,7 +260,6 @@ footer {
     color: #b3b3b3;
 }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
     .home {
         flex-direction: column;
@@ -290,13 +276,13 @@ footer {
     }
 
     .project-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 260px);
     }
 }
 
 @media (max-width: 600px) {
     .project-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 260px;
     }
 }
 
@@ -357,4 +343,92 @@ footer {
 
 .back-link:hover {
     text-decoration: underline;
+}
+
+.skills-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 40px auto 0;
+}
+
+.skill-card {
+    background: #0f0f0f;
+    border: 1px solid rgba(0, 162, 255, 0.25);
+    border-radius: 16px;
+    padding: 25px 20px;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(0, 162, 255, 0.25),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.skill-card:hover::before {
+    opacity: 1;
+}
+
+.skill-card h3 {
+    color: #00A2FF;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.skill-card p {
+    color: #d1d1d1;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 162, 255, 0.35);
+}
+
+@media (max-width: 900px) {
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+}
+.contact p {
+    font-size: 16px;
+    color: #cfcfcf;
+    margin: 10px 0;
+}
+
+.contact-link {
+    color: #cfcfcf;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+.contact-phone {
+    color: #cfcfcf;
+    font-weight: 500;
 }
