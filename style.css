@@ -234,7 +234,7 @@ nav {
 }
 
 .project-card {
-    width: 260px;
+    width: 100%;
     background: #111;
     border: 1px solid rgba(0, 150, 255, 0.25);
     border-radius: 12px;
@@ -286,17 +286,8 @@ footer {
     .skill-box {
         width: 90%;
     }
-
-    .project-container {
-        grid-template-columns: repeat(2, 260px);
-    }
 }
 
-@media (max-width: 600px) {
-    .project-container {
-        grid-template-columns: 260px;
-    }
-}
 
 .hire-page {
     min-height: 100vh;
@@ -531,10 +522,6 @@ nav {
 .project-card {
         width: 100%;
 }
-       
-.skills-container {
-        grid-template-columns: 1fr;
-}
     
 .hire-form {
         width: 100%;
@@ -557,50 +544,6 @@ nav {
     }
     
  }
-
-.education-container {
-    max-width: 900px;
-    margin: 40px auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 0 20px;
-}
-
-.edu-card {
-    background: #0f0f0f;
-    border: 1px solid rgba(0, 162, 255, 0.25);
-    border-radius: 16px;
-    padding: 25px;
-    transition: 0.3s ease;
-}
-
-.edu-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 162, 255, 0.35);
-}
-
-.edu-card h3 {
-    color: #00A2FF;
-    margin-bottom: 8px;
-}
-
-.edu-inst {
-    font-size: 15px;
-    color: #d1d1d1;
-}
-
-.edu-year {
-    font-size: 13px;
-    color: #aaa;
-    margin: 6px 0;
-}
-
-.edu-desc {
-    font-size: 14px;
-    color: #cfcfcf;
-    line-height: 1.6;
-}
 
 
 .timeline {
@@ -680,3 +623,12 @@ nav {
     padding: 80px 20px;
 }
 
+@media(max-width:480px){
+.timeline-content{
+    margin-left:35px;
+}
+}
+
+.home {
+    flex-wrap: wrap;
+}
