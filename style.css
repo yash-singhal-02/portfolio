@@ -634,15 +634,19 @@ nav {
 }
 
 
-@media (max-width:768px){
-
-header{
+@media (max-width: 768px) {
+  header {
     position: static;
+  }
+
+  .home {
+    padding-top: 80px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
-.home{
-    padding-top: 60px;
-}
-
-}
 
