@@ -649,4 +649,27 @@ nav {
   }
 }
 
+@media (max-width:768px){
+
+header{
+    padding: 12px 15px;
+}
+
+nav{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-links{
+    width:100%;
+    justify-content:center;
+    gap:12px;
+}
+
+.social-icons{
+    margin-top:10px;
+}
+
+}
+
 
