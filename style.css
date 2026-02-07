@@ -557,3 +557,48 @@ nav {
     }
     
  }
+
+.education-container {
+    max-width: 900px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+}
+
+.edu-card {
+    background: #0f0f0f;
+    border: 1px solid rgba(0, 162, 255, 0.25);
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.3s ease;
+}
+
+.edu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 162, 255, 0.35);
+}
+
+.edu-card h3 {
+    color: #00A2FF;
+    margin-bottom: 8px;
+}
+
+.edu-inst {
+    font-size: 15px;
+    color: #d1d1d1;
+}
+
+.edu-year {
+    font-size: 13px;
+    color: #aaa;
+    margin: 6px 0;
+}
+
+.edu-desc {
+    font-size: 14px;
+    color: #cfcfcf;
+    line-height: 1.6;
+}
+
