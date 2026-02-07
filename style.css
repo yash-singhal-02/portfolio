@@ -632,3 +632,17 @@ nav {
 .home {
     flex-wrap: wrap;
 }
+
+
+@media (max-width:768px){
+
+header{
+    position: static;
+}
+
+.home{
+    padding-top: 60px;
+}
+
+}
+
