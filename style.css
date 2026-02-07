@@ -607,7 +607,7 @@ nav {
     position: relative;
     max-width: 800px;
     margin: 50px auto;
-    padding-left: 30px;
+    padding-left: 60px;
 }
 
 .timeline::before {
@@ -675,3 +675,8 @@ nav {
 }
 
 }
+
+#education {
+    padding: 80px 20px;
+}
+
