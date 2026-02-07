@@ -602,3 +602,76 @@ nav {
     line-height: 1.6;
 }
 
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #00A2FF;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.dot {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: #00A2FF;
+    border-radius: 50%;
+}
+
+.timeline-content {
+    margin-left: 50px;
+    background: #0f0f0f;
+    padding: 18px 22px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,162,255,0.25);
+    transition: 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateX(5px);
+    box-shadow: 0 0 20px rgba(0,162,255,0.4);
+}
+
+.timeline-content h3 {
+    color: #00A2FF;
+    margin-bottom: 5px;
+}
+
+.timeline-content p {
+    color: #d1d1d1;
+    font-size: 15px;
+}
+
+.timeline-content small {
+    color: #aaa;
+}
+
+
+@media(max-width:600px){
+
+.timeline {
+    padding-left: 20px;
+}
+
+.timeline-content {
+    margin-left: 40px;
+}
+
+}
