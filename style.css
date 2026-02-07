@@ -671,5 +671,9 @@ nav{
 }
 
 }
+.home-buttons{
+    display:flex;
+    gap:15px;
+}
 
 
