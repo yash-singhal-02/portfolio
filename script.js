@@ -2,7 +2,7 @@
 
 // 1. Typing Effect Logic
 const typingText = document.getElementById("typing-text");
-const words = ["Data Science Enthusiast", "Python Developer", "Data Analyst", "Problem Solver"];
+const words = ["Data Science Enthusiast", "Building Insights with Data", "ML & Analytics"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -391,5 +391,35 @@ if (carousel) {
         const x = e.pageX - carousel.offsetLeft;
         const walk = (x - startX) * 2; // Tracking scroll speed
         carousel.scrollLeft = scrollLeft - walk;
+    });
+}
+
+// 11. Projects Filtering Logic
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+if (filterButtons.length > 0 && projectCards.length > 0) {
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(button => button.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filterValue = btn.getAttribute('data-filter');
+            
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filterValue === 'all' || filterValue === category) {
+                    card.style.display = 'flex';
+                    // slight delay to allow display: flex to apply before opacity transitions if any
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'none';
+                    }, 10);
+                } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                }
+            });
+        });
     });
 }
