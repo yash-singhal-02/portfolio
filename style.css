@@ -31,6 +31,23 @@
     --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+body.light-mode {
+    --bg-dark: #f0f4f8;
+    --bg-surface: #ffffff;
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    
+    --accent-blue: #0066ff;
+    --accent-purple: #8a2be2;
+    --accent-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    
+    --glass-border: 1px solid rgba(0, 0, 0, 0.08);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    --neon-glow: 0 0 15px rgba(0, 102, 255, 0.3), 0 0 30px rgba(138, 43, 226, 0.3);
+}
+
 /* === CSS Reset & Base === */
 * {
     margin: 0;
@@ -65,6 +82,22 @@ body {
         radial-gradient(circle at 85% 30%, rgba(138, 43, 226, 0.08), transparent 50%);
 }
 
+#bg-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* relative to .background */
+    pointer-events: none;
+}
+
+body.light-mode .background {
+    background: 
+        radial-gradient(circle at 15% 50%, rgba(0, 102, 255, 0.05), transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(138, 43, 226, 0.05), transparent 50%);
+}
+
 .background::before {
     content: '';
     position: absolute;
@@ -77,6 +110,12 @@ body {
     z-index: -1;
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
     -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+body.light-mode .background::before {
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
 }
 
 /* Typography Base */
@@ -210,7 +249,8 @@ nav {
     gap: 15px;
 }
 
-.social-icons a {
+.social-icons a,
+.social-icons button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -222,9 +262,11 @@ nav {
     color: var(--text-secondary);
     font-size: 1.1rem;
     transition: var(--transition-smooth);
+    cursor: pointer;
 }
 
-.social-icons a:hover {
+.social-icons a:hover,
+.social-icons button:hover {
     background: rgba(255,255,255,0.1);
     color: var(--text-primary);
     transform: translateY(-3px);
@@ -236,7 +278,50 @@ nav {
 .social-icons a.linkedin:hover { color: #0A66C2; border-color: #0A66C2; box-shadow: 0 0 15px rgba(10, 102, 194, 0.5); }
 .social-icons a.github:hover { color: #ffffff; border-color: #ffffff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); }
 .social-icons a.leetcode:hover { color: #FFA116; border-color: #FFA116; box-shadow: 0 0 15px rgba(255, 161, 22, 0.5); }
+.social-icons button.theme-toggle:hover { color: var(--accent-blue); border-color: var(--accent-blue); box-shadow: 0 0 15px rgba(0, 240, 255, 0.5); }
 
+/* Custom Cursor Elements */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-blue);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 10px var(--accent-blue);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-purple);
+    font-size: 1.5rem;
+    transition: top 0.15s ease-out, left 0.15s ease-out, transform 0.2s;
+    filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.6));
+}
+
+@media (pointer: fine) {
+    body {
+        cursor: none;
+    }
+    body a, body button, body .btn {
+        cursor: none;
+    }
+}
 
 /* === Sections General === */
 section {
@@ -601,6 +686,35 @@ section {
     margin: 0 auto;
 }
 
+/* Interactive Horizontal Certificates Carousel */
+.certificates-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    scrollbar-width: none;
+    cursor: grab;
+}
+.certificates-carousel::-webkit-scrollbar {
+    display: none;
+}
+.certificates-carousel:active {
+    cursor: grabbing;
+}
+.certificates-carousel > .carousel-item {
+    scroll-snap-align: center;
+    flex: 0 0 350px;
+    display: block;
+    perspective: 1000px;
+}
+
+@media (max-width: 768px) {
+    .certificates-carousel > .carousel-item {
+        flex: 0 0 85vw; /* Adjust for mobile gracefully */
+    }
+}
+
 .achievement-card {
     background: var(--bg-glass);
     border: var(--glass-border);
@@ -614,7 +728,14 @@ section {
     align-items: center; /* Center horizontally */
     text-align: center;  /* Center text */
     position: relative;
-    /* overflow: hidden; Removed to allow hover preview tooltips */
+    /* Added for 3D Tilt Interaction */
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* 3D Inner Content pops out */
+.achievement-card > * {
+    transform: translateZ(30px);
 }
 
 .achievement-card::before {
@@ -631,9 +752,9 @@ section {
 }
 
 .achievement-card:hover {
-    transform: translateY(-8px);
     border-color: rgba(255,255,255,0.2);
     box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    /* JS will handle 3D transform */
 }
 
 .achievement-card:hover::before {
@@ -690,7 +811,40 @@ section {
 
 .achievement-card:hover .cert-preview {
     opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
+    transform: translateX(-50%) translateY(0) scale(1) translateZ(50px);
+}
+
+/* Glare overlay injected by JS */
+.glare-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    z-index: 10;
+    pointer-events: none;
+    /* Prevent glare from popping out in 3D */
+    transform: translateZ(0);
+}
+
+.glare {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+    width: 200%;
+    height: 200%;
+    transform: rotate(180deg) translate(-50%, -50%);
+    transform-origin: 0% 0%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.achievement-card:hover .glare {
+    opacity: 1;
 }
 
 /* === Projects Section === */

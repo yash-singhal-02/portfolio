@@ -11,16 +11,22 @@
 </head>
 
 <body>
-<div class="background"></div>
+<div class="background">
+    <canvas id="bg-canvas"></canvas>
+</div>
 
-<header id="header">
+<!-- Custom Cursor Elements -->
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-outline" id="cursor-outline">
+    <i class="fas fa-robot"></i> <!-- Interactive character -->
+</div><header id="header">
     <nav>
         <div class="logo">Portfolio</div>
         
         <ul class="nav-links" id="nav-links">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="Resume.pdf" target="_blank">Resume</a></li>
+            <li><a href="resume/Resume.pdf" target="_blank">Resume</a></li>
             <li><a href="#work-experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Education</a></li>
@@ -38,6 +44,9 @@
             <a href="https://leetcode.com/u/yash_singhal_02" target="_blank" class="leetcode" title="LeetCode">
                 <i class="fas fa-code"></i>
             </a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
 
         <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
@@ -64,7 +73,7 @@
 
     <div class="home-right reveal delay-2">
         <div class="img-container">
-            <img src="pic.jpg" class="profile-img" alt="Yash Singhal">
+            <img src="images/pic.jpg" class="profile-img" alt="Yash Singhal">
         </div>
     </div>
 </section>
@@ -249,7 +258,7 @@
 
         <!-- Project 1 -->
         <div class="project-card reveal delay-1">
-            <div class="project-img-placeholder" style="background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800') center/cover;">
+            <div class="project-img-placeholder" style="background: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800') center/cover;">
             </div>
             <div class="project-info">
                 <h3 class="project-title">Interactive Sorting Visualizer</h3>
@@ -269,7 +278,7 @@
 
         <!-- Project 2 -->
         <div class="project-card reveal delay-2">
-            <div class="project-img-placeholder" style="background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800') center/cover;">
+            <div class="project-img-placeholder" style="background: url('https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=800') center/cover;">
             </div>
             <div class="project-info">
                 <h3 class="project-title">Amazon Predictive Dashboard</h3>
@@ -290,7 +299,7 @@
 
         <!-- Project 3 -->
         <div class="project-card reveal delay-3">
-            <div class="project-img-placeholder" style="background: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800') center/cover;">
+            <div class="project-img-placeholder" style="background: url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800') center/cover;">
             </div>
             <div class="project-info">
                 <h3 class="project-title">DevOps System Monitoring</h3>
@@ -309,7 +318,7 @@
 
         <!-- Project 4 -->
         <div class="project-card reveal delay-4">
-            <div class="project-img-placeholder" style="background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=800') center/cover;">
+            <div class="project-img-placeholder" style="background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800') center/cover;">
             </div>
             <div class="project-info">
                 <h3 class="project-title">Global Earthquake Analysis</h3>
@@ -357,9 +366,9 @@
 <section id="certificates" class="achievements-section">
     <h2 class="section-title reveal">Certificates</h2>
 
-    <div class="achievements-container">
+    <div class="achievements-container certificates-carousel">
         <!-- Certificate 1 -->
-        <a href="https://www.linkedin.com/posts/yash-singhal-aba089298_cplusplus-coding-problemsolving-activity-7369417800789975043-AHQZ" target="_blank" style="text-decoration: none;">
+        <a href="https://www.linkedin.com/posts/yash-singhal-aba089298_cplusplus-coding-problemsolving-activity-7369417800789975043-AHQZ" target="_blank" class="carousel-item" style="text-decoration: none;">
             <div class="achievement-card reveal delay-1" style="height: 100%;">
                 <div class="achievement-icon" style="color: #2F8D46;">
                     <i class="fas fa-laptop-code"></i>
@@ -373,7 +382,7 @@
         </a>
 
         <!-- Certificate 2 -->
-        <a href="https://www.linkedin.com/posts/yash-singhal-aba089298_lpu-datastructures-algorithms-activity-7364534854253752322-kpgR" target="_blank" style="text-decoration: none;">
+        <a href="https://www.linkedin.com/posts/yash-singhal-aba089298_lpu-datastructures-algorithms-activity-7364534854253752322-kpgR" target="_blank" class="carousel-item" style="text-decoration: none;">
             <div class="achievement-card reveal delay-2" style="height: 100%;">
                 <div class="achievement-icon" style="color: #F89820;">
                     <i class="fas fa-university"></i>
@@ -387,7 +396,7 @@
         </a>
 
         <!-- Certificate 3 -->
-        <a href="https://www.linkedin.com/posts/yash-singhal-aba089298_activity-7159456303474507776-_YKZ" target="_blank" style="text-decoration: none;">
+        <a href="https://www.linkedin.com/posts/yash-singhal-aba089298_activity-7159456303474507776-_YKZ" target="_blank" class="carousel-item" style="text-decoration: none;">
             <div class="achievement-card reveal delay-3" style="height: 100%;">
                 <div class="achievement-icon" style="color: #3776AB;">
                     <i class="fab fa-python"></i>
@@ -400,7 +409,7 @@
         </a>
 
         <!-- Certificate 4 -->
-        <a href="https://www.freecodecamp.org/certification/fccf9f36afc-dccb-4e77-b076-44074523d686/responsive-web-design" target="_blank" style="text-decoration: none;">
+        <a href="https://www.freecodecamp.org/certification/fccf9f36afc-dccb-4e77-b076-44074523d686/responsive-web-design" target="_blank" class="carousel-item" style="text-decoration: none;">
             <div class="achievement-card reveal delay-4" style="height: 100%;">
                 <div class="achievement-icon" style="color: #0A0A23;">
                     <i class="fab fa-free-code-camp"></i>
@@ -414,7 +423,7 @@
         </a>
 
         <!-- Certificate 5 -->
-        <a href="https://www.linkedin.com/posts/yash-singhal02_javaprogramming-certification-lpu-activity-7331351514852081664-8KWg" target="_blank" style="text-decoration: none;">
+        <a href="https://www.linkedin.com/posts/yash-singhal02_javaprogramming-certification-lpu-activity-7331351514852081664-8KWg" target="_blank" class="carousel-item" style="text-decoration: none;">
             <div class="achievement-card reveal delay-5" style="height: 100%;">
                 <div class="cert-preview">
                     <img src="https://placehold.co/400x300/1a1a1a/00f0ff?text=Java+Certificate" alt="Java Certificate Preview">
@@ -431,7 +440,7 @@
         </a>
 
         <!-- Certificate 6 -->
-        <a href="https://www.linkedin.com/posts/yash-singhal02_techjourney-networkingskills-lifelonglearning-activity-7238549895731666944-RqQv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEfqCu4BwKYVhhQgNL2APdy4OdyIECJUBo8" target="_blank" style="text-decoration: none;">
+        <a href="https://www.linkedin.com/posts/yash-singhal02_techjourney-networkingskills-lifelonglearning-activity-7238549895731666944-RqQv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEfqCu4BwKYVhhQgNL2APdy4OdyIECJUBo8" target="_blank" class="carousel-item" style="text-decoration: none;">
             <div class="achievement-card reveal delay-6" style="height: 100%;">
                 <div class="cert-preview">
                     <img src="https://placehold.co/400x300/1a1a1a/00f0ff?text=Google+Networking" alt="Google Networking Preview">
