@@ -423,3 +423,32 @@ if (filterButtons.length > 0 && projectCards.length > 0) {
         });
     });
 }
+
+// 12. Robot Greeting Interaction Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const robotGreeting = document.getElementById("robot-greeting");
+    const aiAvatar = document.querySelector(".ai-avatar-svg");
+    
+    if (robotGreeting && aiAvatar) {
+        const hour = new Date().getHours();
+        let greeting = "Good Evening";
+        
+        if (hour >= 5 && hour < 12) {
+            greeting = "Good Morning";
+        } else if (hour >= 12 && hour < 17) {
+            greeting = "Good Afternoon";
+        }
+        
+        // Use clean greeting by default
+        robotGreeting.innerHTML = `${greeting}!`;
+        
+        // Add subtle color change on hover to maintain interactivity
+        aiAvatar.parentElement.addEventListener("mouseenter", () => {
+            robotGreeting.style.color = "var(--accent-purple)";
+        });
+        
+        aiAvatar.parentElement.addEventListener("mouseleave", () => {
+            robotGreeting.style.color = "var(--accent-blue)";
+        });
+    }
+});

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yash Singhal | Portfolio</title>
+    <title>Yash Singhal | Data Science Portfolio</title>
     
     <link rel="stylesheet" href="style.css" />
     <!-- Font Awesome for sleek modern icons -->
@@ -11,22 +11,21 @@
 </head>
 
 <body>
+
 <div class="background">
     <canvas id="bg-canvas"></canvas>
 </div>
 
 <!-- Custom Cursor Elements -->
-<div class="cursor-dot" id="cursor-dot"></div>
-<div class="cursor-outline" id="cursor-outline">
-    <i class="fas fa-robot"></i> <!-- Interactive character -->
-</div><header id="header">
+<div class="cursor-dot" id="cursor-dot"><i class="fas fa-robot"></i></div>
+<div class="cursor-outline" id="cursor-outline"></div><header id="header">
     <nav>
         <div class="logo">Portfolio</div>
         
         <ul class="nav-links" id="nav-links">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="Resume.pdf" target="_blank">Resume</a></li>
+            <li><a href="resume/Resume.pdf" target="_blank">Resume</a></li>
             <li><a href="#work-experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Education</a></li>
@@ -73,8 +72,34 @@
 
     <div class="home-right reveal delay-2">
         <div class="img-container">
-            <img src="pic.jpg" class="profile-img" alt="Yash Singhal">
+            <img src="images/pic.jpg" class="profile-img" alt="Yash Singhal">
         </div>
+    </div>
+
+    <!-- AI Assistant Avatar -->
+    <div class="waving-robot-container">
+        <div class="robot-greeting" id="robot-greeting">Good Morning</div>
+        <svg class="ai-avatar-svg" width="85" height="85" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer Tech Ring -->
+            <circle cx="50" cy="50" r="46" fill="none" stroke="var(--accent-purple)" stroke-width="2" stroke-dasharray="15 10" class="ring-slow" opacity="0.6"/>
+            <!-- Inner Tech Ring -->
+            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent-blue)" stroke-width="1" stroke-dasharray="30 5" class="ring-fast" opacity="0.8"/>
+            
+            <!-- Main AI Core Base -->
+            <circle cx="50" cy="50" r="32" fill="var(--bg-glass)" stroke="var(--text-primary)" stroke-width="2"/>
+            
+            <!-- Sleek Visor -->
+            <rect x="25" y="32" width="50" height="18" rx="9" fill="var(--bg-dark)" stroke="var(--accent-blue)" stroke-width="1.5"/>
+            <!-- Scanning Eye/Light in Visor -->
+            <circle cx="35" cy="41" r="5" fill="var(--accent-blue)" class="visor-eye"/>
+            
+            <!-- Voice UI / Mouth -->
+            <g class="voice-waves" fill="var(--accent-purple)">
+                <rect x="41" y="60" width="4" height="8" rx="2" class="wave w1"/>
+                <rect x="48" y="58" width="4" height="12" rx="2" class="wave w2"/>
+                <rect x="55" y="60" width="4" height="8" rx="2" class="wave w3"/>
+            </g>
+        </svg>
     </div>
 </section>
 

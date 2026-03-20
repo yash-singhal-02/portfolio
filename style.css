@@ -282,9 +282,9 @@ nav {
 
 /* Custom Cursor Elements */
 .cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--accent-blue);
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -292,8 +292,13 @@ nav {
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 9999;
-    box-shadow: 0 0 10px var(--accent-blue);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-purple);
+    font-size: 20px;
+    filter: drop-shadow(0 0 5px var(--accent-purple));
+    transition: width 0.2s, height 0.2s, color 0.2s, font-size 0.2s;
 }
 
 .cursor-outline {
@@ -338,6 +343,7 @@ section {
     justify-content: space-between;
     gap: 40px;
     padding-top: 120px;
+    position: relative;
 }
 
 .home-left {
@@ -1254,5 +1260,153 @@ footer {
     
     :root {
         --section-padding: 80px 20px;
+    }
+}
+
+/* === AI Avatar in Home === */
+.waving-robot-container {
+    position: absolute; /* Anchor it to the home section only */
+    bottom: 40px;
+    right: -120px; /* Push it further out into the margin space */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align greeting to the right */
+    gap: 12px;
+    z-index: 10; /* Lower z-index since it stays in home */
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 1500px) {
+    .waving-robot-container {
+        right: -60px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .waving-robot-container {
+        right: 0px;
+    }
+}
+
+.robot-greeting {
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 12px 12px 0 12px; /* Speech bubble pointing bottom right */
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent-blue);
+    box-shadow: 0 8px 25px rgba(0, 240, 255, 0.15);
+    position: relative;
+    animation: fadeIn 1s ease-in-out forwards;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    font-family: var(--font-body);
+}
+
+.robot-greeting::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 20px; /* Point to the AI core */
+    border-width: 8px 8px 0 0;
+    border-style: solid;
+    border-color: rgba(0, 240, 255, 0.3) transparent transparent transparent;
+    display: block;
+    width: 0;
+    transition: all 0.3s ease;
+}
+
+.waving-robot-container:hover .robot-greeting {
+    border-color: rgba(138, 43, 226, 0.5);
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.25);
+    transform: translateY(-5px);
+}
+
+.waving-robot-container:hover .robot-greeting::after {
+    border-color: rgba(138, 43, 226, 0.5) transparent transparent transparent;
+}
+
+/* AI Avatar Animations */
+.ai-avatar-svg {
+    filter: drop-shadow(0 0 12px rgba(138, 43, 226, 0.4));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+    cursor: pointer;
+}
+
+.ai-avatar-svg:hover {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.7));
+}
+
+.ring-slow {
+    transform-origin: 50% 50%;
+    animation: spinRotate 12s linear infinite;
+}
+
+.ring-fast {
+    transform-origin: 50% 50%;
+    animation: spinRotateReverse 8s linear infinite;
+}
+
+.visor-eye {
+    animation: scanEye 3s ease-in-out infinite alternate;
+}
+
+.ai-avatar-svg:hover .visor-eye {
+    fill: var(--accent-purple);
+    animation-duration: 0.8s;
+}
+
+.wave {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: voiceActive 0.8s ease-in-out infinite alternate;
+}
+
+.w1 { animation-delay: 0.1s; }
+.w2 { animation-delay: 0.3s; }
+.w3 { animation-delay: 0.2s; }
+
+/* Speed up voice wave on hover */
+.ai-avatar-svg:hover .wave {
+    animation-duration: 0.3s;
+    fill: var(--accent-blue);
+}
+
+@keyframes spinRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spinRotateReverse {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes scanEye {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(30px); }
+}
+
+@keyframes voiceActive {
+    0%   { transform: scaleY(0.5); opacity: 0.6; }
+    100% { transform: scaleY(1.5); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+    .waving-robot-container {
+        bottom: 20px;
+        right: 20px;
+        transform: scale(0.85); /* shrink slightly so it doesn't block too much */
+        transform-origin: bottom right;
     }
 }
