@@ -1,0 +1,38 @@
+.hire-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hire-form {
+    width: 420px;
+    background: rgba(17, 17, 17, 0.85);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 162, 255, 0.25);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(0, 162, 255, 0.15);
+}
+
+.hire-form input,
+.hire-form textarea {
+    width: 100%;
+    background: #000;
+    border: 1px solid #333;
+    color: white;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-family: Poppins;
+}
+
+.hire-form textarea {
+    resize: none;
+    height: 120px;
+}
+
+.hire-form button {
+    width: 100%;
+}

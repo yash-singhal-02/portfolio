@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hire Me | Yash Singhal</title>
+    
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+<div class="background"></div>
+
+<section class="hire-page reveal delay-1">
+    <div class="hire-container">
+        <h2 class="logo" style="margin-bottom: 30px; display: inline-block;">Yash Singhal</h2>
+        <h3 style="margin-bottom: 25px; color: var(--text-primary); font-size: 1.5rem;">Let's work Together!</h3>
+        
+        <form class="hire-form" id="hireForm">
+            <div class="input-box">
+                <input type="text" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="input-box">
+                <input type="email" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="input-box">
+                <input type="text" id="company" placeholder="Company Name" required>
+            </div>
+            <div class="input-box">
+                <textarea id="message" placeholder="Message Details..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+                Send Message <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
+            </button>
+            <p id="status" style="margin-top: 15px; font-weight: 500;"></p>
+        </form>
+        
+        <a href="index.html" class="back-link" style="display: inline-block; margin-top: 25px; color: var(--text-secondary); text-decoration: none;">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+</section>
+
+<!-- Module script for Supabase -->
+<script type="module" src="hire.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
